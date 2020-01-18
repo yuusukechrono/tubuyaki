@@ -10,12 +10,11 @@ class BlogsController < ApplicationController
 
   def create
     Blog.create(blog_params)
-    redirect_to new_blog_path
-    #一覧に後で変更
+    redirect_to blogs_path
   end
 
   def show
-
+    @blog = Blog.find(params[:id])
   end
 
   private
