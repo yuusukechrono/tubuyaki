@@ -1,9 +1,13 @@
 <%= form_with(model: @blog, local: true) do |form| %>
 
+  <h1>つぶやきの投稿</h1>
+
   <div class="blog_content">
     <%= form.label :content %>
     <%= form.text_field :content %>
   </div>
   <%= form.submit %>
+  <br><br>
+  <%= link_to 'つぶやき一覧へ', blogs_path %>
 
 <% end %>
