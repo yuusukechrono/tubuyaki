@@ -11,13 +11,13 @@
     </div>
   <% end %>
 
-  <div class="blog_content">
+  <div class="container">
     <%= form.label :本文 %>
     <%= form.text_field :content %>
-  </div>
   <br>
   <%= form.submit "登録する" %>
   <br>
   <% end %>
   <br>
-  <%= link_to 'つぶやき一覧へ', blogs_path %>
+  <%= link_to 'つぶやき一覧へ', blogs_path, class: 'btn btn-primary' %>
+  </div>
