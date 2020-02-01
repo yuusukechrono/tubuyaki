@@ -1,23 +1,35 @@
-<%= form_with(model: @blog, local: true, url: choose_new_or_edit ) do |form| %>
-  <% if @blog.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= @blog.errors.count %>件のエラーがあります。</h2>
-      <ul>
+<div class="container">
+  <div class="col-md-1">広告</div>   
+  <div class="col-md-10">
+    <header class="header">つぶやき投稿</header>
 
-      <% @blog.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+    <%= form_with(model: @blog, local: true, url: choose_new_or_edit ) do |form| %>
+      <% if @blog.errors.any? %>
+        <div id="error_explanation">
+          <h1><%= @blog.errors.count %>件のエラーがあります。</h1>
+          <ul>
+          <% @blog.errors.full_messages.each do |msg| %>
+           <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
+  
 
-  <div class="container">
-    <%= form.label :本文 %>
-    <%= form.text_field :content %>
-  <br>
-  <%= form.submit "登録する" %>
-  <br>
-  <% end %>
-  <br>
-  <%= link_to 'つぶやき一覧へ', blogs_path, class: 'btn btn-primary' %>
+    <div class="row">
+      <br>
+      <div class="well">
+        <div class="content">
+          <%= form.text_area :content,  class: 'input', id: 'input-text', maxlength: '140' %>
+          <p id="counter">0文字/140文字</p>
+          <%= form.submit '登録する', class: 'btn btn-primary' %>
+        </div>
+      </div>
+    </div>
+    <div class=row>
+      <%= link_to 'つぶやき一覧へ', blogs_path, class: 'btn btn-primary' %>
+    </div>
   </div>
+  <div class="col-md-1">広告</div>
+</div>
+<% end %>

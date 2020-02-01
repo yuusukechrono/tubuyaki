@@ -1,15 +1,31 @@
 <div class="container">
-<h3>以下の内容で、送信する。</h3>
+  <div class="col-md-1">広告</div>   
 
-<%= form_with(model: @blog, url: blogs_path, local: true) do |form| %>
-  <%= form.hidden_field :content %>
+  <div class="col-md-10">
+    <header class="header">つぶやき確認画面</header>
+    <br>
+    <h1>以下の内容で、送信する。</h1>
+    <br>
+    <div class="row">
+      <div class="well">
+        <div class="content">
+          <%= form_with(model: @blog, url: blogs_path, local: true) do |form| %>
+            <%= form.hidden_field :content %>
+            <%= @blog.content %>
+            <br><br>
+            <%= form.submit  "登録する", class: 'btn btn-primary' %>
+            <%= form.submit "戻る", name: 'back', class: 'btn btn-primary' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <br>
 
-  <p><%= @blog.content %></p>
+    <div class=row>
+      <%= link_to 'つぶやき一覧へ', blogs_path, class: 'btn btn-primary'  %>
+    </div>
 
-  <%= form.submit  "登録する" %>
-  <br>
-  <%= form.submit "戻る", name: 'back' %>
-<% end %>
-<br>
-<%= link_to 'つぶやき一覧へ', blogs_path, class: 'btn btn-primary'  %>
+  </div>
+
+  <div class="col-md-1">広告</div>
 </div>

@@ -1,6 +1,22 @@
 <div class="container">
-<h1>つぶやき詳細画面</h1>
-<p>本文: <%= @blog.content %></p>
-<br>
-<%= link_to 'つぶやき一覧へ', blogs_path, class: 'btn btn-primary'  %>
+  <div class="col-md-1">広告</div>   
+
+  <div class="col-md-10">
+    <header class="header">つぶやき詳細画面</header>
+    <br>
+    <div class="row">
+      <div class="well">
+        <div class="content">
+          <p><%= @blog.content %></p>
+          <br>
+        </div>
+      </div>
+    </div>
+
+    <div class=row>
+      <%= link_to 'つぶやき一覧へ', blogs_path, class: 'btn btn-primary'  %>
+    </div>
+  </div>
+
+  <div class="col-md-1">広告</div>
 </div>
