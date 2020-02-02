@@ -1,31 +1,36 @@
 <div class="container">
-  <div class="col-md-1">広告</div>   
+  <div class="col-md-2"><%= image_tag 'mori.jpg' %></div>   
 
-  <div class="col-md-10">
+  <div class="col-md-8">
     <header class="header">つぶやき確認画面</header>
     <br>
-    <h1>以下の内容で、送信する。</h1>
-    <br>
+    <p>以下の内容で、送信する。</p>
     <div class="row">
-      <div class="well">
-        <div class="content">
-          <%= form_with(model: @blog, url: blogs_path, local: true) do |form| %>
-            <%= form.hidden_field :content %>
-            <%= @blog.content %>
-            <br><br>
-            <%= form.submit  "登録する", class: 'btn btn-primary' %>
-            <%= form.submit "戻る", name: 'back', class: 'btn btn-primary' %>
-          <% end %>
-        </div>
+      <div class="content">
+        <%= form_with(model: @blog, url: blogs_path, local: true) do |form| %>
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <%= form.hidden_field :content %>
+              <%= @blog.content %>
+            </div>
+            <div class="panel-footer">
+              <%= form.submit  "登録する", class: 'btn btn-primary' %>
+              <%= form.submit "戻る", name: 'back', class: 'btn btn-primary' %>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
-    <br>
 
     <div class=row>
-      <%= link_to 'つぶやき一覧へ', blogs_path, class: 'btn btn-primary'  %>
+      <div class="top-bottom">    
+        <%= link_to 'つぶやき一覧へ', blogs_path, class: 'btn btn-primary'  %>
+      </div>
     </div>
-
+    <footer>
+      <div class="company">© Tubuyaki Corp. All RIGHTS RESERVED.</div>
+    </fotter>
   </div>
 
-  <div class="col-md-1">広告</div>
+  <div class="col-md-2"><%= image_tag 'making_150202_03.jpg' %></div>
 </div>

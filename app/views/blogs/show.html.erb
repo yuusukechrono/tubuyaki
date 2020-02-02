@@ -1,22 +1,32 @@
 <div class="container">
-  <div class="col-md-1">広告</div>   
+  <div class="col-md-2"><%= image_tag 'mori.jpg' %></div>   
 
-  <div class="col-md-10">
+  <div class="col-md-8">
     <header class="header">つぶやき詳細画面</header>
     <br>
     <div class="row">
-      <div class="well">
-        <div class="content">
-          <p><%= @blog.content %></p>
-          <br>
+      <div class="content">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <p><%= @blog.content %></p>
+          </div>
+          <div class="panel-footer">
+            <%= link_to '編集', edit_blog_path(@blog.id), class: 'btn btn-primary'  %>
+            <%= link_to '削除', blog_path(@blog.id),class: 'btn btn-primary', method: :delete ,data: { confirm: '本当に削除していいですか？' } %>
+          </div>
         </div>
       </div>
     </div>
 
     <div class=row>
-      <%= link_to 'つぶやき一覧へ', blogs_path, class: 'btn btn-primary'  %>
+      <div class="top-bottom">
+        <%= link_to 'つぶやき一覧へ', blogs_path, class: 'btn btn-primary'  %>
+      </div>
     </div>
+    <footer>
+      <div class="company">© Tubuyaki Corp. All RIGHTS RESERVED.</div>
+    </fotter>
   </div>
 
-  <div class="col-md-1">広告</div>
+  <div class="col-md-2"><%= image_tag 'making_150202_03.jpg' %></div>
 </div>

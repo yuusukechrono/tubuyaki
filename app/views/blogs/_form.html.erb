@@ -1,12 +1,12 @@
 <div class="container">
-  <div class="col-md-1">広告</div>   
-  <div class="col-md-10">
+  <div class="col-md-2"><%= image_tag 'mori.jpg' %></div>   
+  <div class="col-md-8">
     <header class="header">つぶやき投稿</header>
 
     <%= form_with(model: @blog, local: true, url: choose_new_or_edit ) do |form| %>
       <% if @blog.errors.any? %>
         <div id="error_explanation">
-          <h1><%= @blog.errors.count %>件のエラーがあります。</h1>
+          <p><%= @blog.errors.count %>件のエラーがあります。</p>
           <ul>
           <% @blog.errors.full_messages.each do |msg| %>
            <li><%= msg %></li>
@@ -15,21 +15,29 @@
         </div>
       <% end %>
   
-
+    <br>
     <div class="row">
-      <br>
-      <div class="well">
-        <div class="content">
-          <%= form.text_area :content,  class: 'input', id: 'input-text', maxlength: '140' %>
-          <p id="counter">0文字/140文字</p>
-          <%= form.submit '登録する', class: 'btn btn-primary' %>
+      <div class="content">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <%= form.text_area :content,  class: 'input', id: 'input-text'%><p id="counter">0文字/140文字</p>
+          </div>
+          <div class="panel-footer">
+            <%= form.submit '登録する', class: 'btn btn-primary' %>
+          </div>
+        </div>
+      </div>
+      <div class=row>
+        <div class="top-bottom">
+          <%= link_to 'つぶやき一覧へ', blogs_path, class: 'btn btn-primary' %>
         </div>
       </div>
     </div>
-    <div class=row>
-      <%= link_to 'つぶやき一覧へ', blogs_path, class: 'btn btn-primary' %>
-    </div>
+    <footer>
+      <div class="company">© Tubuyaki Corp. All RIGHTS RESERVED.</div>
+    </fotter>
   </div>
-  <div class="col-md-1">広告</div>
+
+  <div class="col-md-2"><%= image_tag 'making_150202_03.jpg' %></div>
 </div>
 <% end %>
