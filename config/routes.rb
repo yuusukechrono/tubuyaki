@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'blogs/index'
-  root 'blogs#index'
- resources :blogs do
+  get 'tweets/index'
+  root 'tweets#index'
+ resources :tweets do
    collection do
      post :confirm
    end

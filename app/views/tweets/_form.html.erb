@@ -3,12 +3,12 @@
   <div class="col-md-8">
     <header class="header">つぶやき投稿</header>
 
-    <%= form_with(model: @blog, local: true, url: choose_new_or_edit ) do |form| %>
-      <% if @blog.errors.any? %>
+    <%= form_with(model: @tweet, local: true, url: choose_new_or_edit ) do |form| %>
+      <% if @tweet.errors.any? %>
         <div id="error_explanation">
-          <p><%= @blog.errors.count %>件のエラーがあります。</p>
+          <p><%= @tweet.errors.count %>件のエラーがあります。</p>
           <ul>
-          <% @blog.errors.full_messages.each do |msg| %>
+          <% @tweet.errors.full_messages.each do |msg| %>
            <li><%= msg %></li>
           <% end %>
           </ul>
@@ -29,7 +29,7 @@
       </div>
       <div class=row>
         <div class="top-bottom">
-          <%= link_to 'つぶやき一覧へ', blogs_path, class: 'btn btn-primary' %>
+          <%= link_to 'つぶやき一覧へ', tweets_path, class: 'btn btn-primary' %>
         </div>
       </div>
     </div>
